@@ -1,16 +1,25 @@
-# React + Vite
+# Proyecto: Simulación de Tienda (React)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este es el proyecto para el **Analisis de Resultados de la guia 3**. El cual consiste en un catálogo de productos tecnológico desarrollado con React, enfocado en el manejo de componentes modulares y el flujo de datos a través de props.
 
-Currently, two official plugins are available:
+## Sobre el desarrollo
+Para este sistema utilicé una estructura de dos componentes principales:
+* **ProductList**: Es el componente contenedor. Aquí manejo el estado con un arreglo de 10 productos (con su ID, nombre, precio e imagen) y utilizo un `.map()` para renderizarlos.
+* **ProductItem**: Este componente se encarga de la parte visual de cada tarjeta. Recibe la información del padre y gestiona la interactividad.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+**Nota sobre las imágenes:** Las descargué y las guardé localmente en la carpeta `public/img` para que el proyecto no dependa de enlaces externos y la carga sea más estable.
 
-## React Compiler
+## Mejoras añadidas
+Para darle un toque más profesional, integré la librería **SweetAlert2**. En lugar de usar el `alert()` básico del navegador, ahora al dar clic en "Ver detalle" aparece una ventana emergente personalizada que muestra la foto del producto, el ID y el precio, mejorando la experiencia visual.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Cómo ejecutar el proyecto
+Si acabas de bajar el proyecto, sigue estos pasos en la terminal:
 
-## Expanding the ESLint configuration
+1. **Instalar dependencias**:
+npm install
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+2. **Iniciar el servidor local**:
+npm run dev
+
+3. **Ver en el navegador**:
+Copia y pega la dirección que le probeé la terminal (normalmente es http://localhost:5173) en su navegador.

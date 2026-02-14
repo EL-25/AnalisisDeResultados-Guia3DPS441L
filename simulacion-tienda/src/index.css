@@ -1,68 +1,144 @@
+/* =========================================
+   CONFIGURACIONES GLOBALES
+   ========================================= */
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background-color: #f4f7f6;
+  color: #2c3e50;
 }
 
 body {
   margin: 0;
+  padding: 0;
+  line-height: 1.6;
+}
+
+/* Título de la Tienda */
+.shop-title {
+  text-align: center;
+  color: #2c3e50;
+  font-size: 2.5rem;
+  margin-top: 40px;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 800;
+}
+
+/* =========================================
+   CONTENEDOR DE LA LISTA (GRID)
+   ========================================= */
+.product-list-container {
+  display: grid;
+  /* Crea una cuadrícula responsiva: mínimo 250px por tarjeta */
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+  padding: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* =========================================
+   TARJETA DE PRODUCTO (CARD)
+   ========================================= */
+.product-card {
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: center;
+  
+  /* Flexbox para que el contenido interno se alinee perfectamente */
   display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+  flex-direction: column;
+  height: 100%; 
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+.product-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.12);
 }
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
+/* Ajuste de Imágenes */
+.product-image {
+  width: 100%;
+  height: 220px;
+  /* 'contain' evita que la imagen se deforme o se corte */
+  object-fit: contain; 
+  background-color: #ffffff;
+  padding: 20px;
+  border-bottom: 1px solid #f0f0f0;
+  box-sizing: border-box;
+}
+
+/* Información del Producto (Texto y Botón) */
+.product-info {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1; /* Empuja el contenido para llenar la tarjeta */
+  justify-content: space-between; /* Alinea el botón siempre al fondo */
+}
+
+.product-info h3 {
+  margin: 0 0 10px 0;
+  font-size: 1.15rem;
+  color: #34495e;
+  font-weight: 700;
+}
+
+.price {
+  color: #27ae60;
+  font-weight: 800;
+  font-size: 1.5rem;
+  margin: 10px 0;
+}
+
+/* =========================================
+   BOTONES Y ELEMENTOS INTERACTIVOS
+   ========================================= */
+.add-button {
+  background: #3498db;
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 10px;
   cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: background 0.2s ease, transform 0.1s active;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+.add-button:hover {
+  background: #2980b9;
+}
+
+.add-button:active {
+  transform: scale(0.98);
+}
+
+/* =========================================
+   ESTILOS PARA SWEETALERT2 (MENSAJES)
+   ========================================= */
+/* Esto hace que el popup use la misma fuente que tu tienda */
+.swal2-popup {
+  font-family: 'Inter', sans-serif !important;
+  border-radius: 20px !important;
+}
+
+.swal2-title {
+  color: #2c3e50 !important;
+}
+
+/* =========================================
+   FOOTER ACADÉMICO
+   ========================================= */
+footer {
+  margin-top: 60px;
+  padding: 30px;
+  text-align: center;
+  border-top: 1px solid #eee;
+  color: #95a5a6;
+  font-size: 0.85rem;
 }
